@@ -1,0 +1,1157 @@
+[
+  {
+    "id": "ut-1",
+    "courseId": "course-usul-thalatha",
+    "index": 0,
+    "title": "الدرس 01: مقدمة المؤلف",
+    "pdfPage": 3,
+    "benefits": [
+      "أهمية البسملة في بداية الكتب",
+      "منهج المؤلف في الرسالة"
+    ]
+  },
+  {
+    "id": "ut-2",
+    "courseId": "course-usul-thalatha",
+    "index": 1,
+    "title": "الدرس 02: واجب تعلم أربع مسائل",
+    "pdfPage": 4,
+    "benefits": [
+      "العلم: معرفة الله ونبيه ودين الإسلام",
+      "العمل به والدعوة إليه"
+    ]
+  },
+  {
+    "id": "ut-3",
+    "courseId": "course-usul-thalatha",
+    "index": 2,
+    "title": "الدرس 03: الحنيفية ملة إبراهيم"
+  },
+  {
+    "id": "ut-4",
+    "courseId": "course-usul-thalatha",
+    "index": 3,
+    "title": "الدرس 04: الأصل الأول (معرفة الرب)"
+  },
+  {
+    "id": "ut-5",
+    "courseId": "course-usul-thalatha",
+    "index": 4,
+    "title": "الدرس 05: أنواع العبادة (1)"
+  },
+  {
+    "id": "ut-6",
+    "courseId": "course-usul-thalatha",
+    "index": 5,
+    "title": "الدرس 06: أنواع العبادة (2)"
+  },
+  {
+    "id": "ut-7",
+    "courseId": "course-usul-thalatha",
+    "index": 6,
+    "title": "الدرس 07: الأصل الثاني (معرفة الدين)"
+  },
+  {
+    "id": "ut-8",
+    "courseId": "course-usul-thalatha",
+    "index": 7,
+    "title": "الدرس 08: مراتب الدين (الإسلام والإيمان)"
+  },
+  {
+    "id": "ut-9",
+    "courseId": "course-usul-thalatha",
+    "index": 8,
+    "title": "الدرس 09: الإيمان والإحسان"
+  },
+  {
+    "id": "ut-10",
+    "courseId": "course-usul-thalatha",
+    "index": 9,
+    "title": "الدرس 10: الأصل الثالث (معرفة النبي)",
+    "pdfPage": 14,
+    "benefits": [
+      "وجوب معرفة النبي صلى الله عليه وسلم",
+      "الأدلة على نبوته"
+    ]
+  },
+  {
+    "id": "qa-1",
+    "courseId": "course-qawaid-arba",
+    "index": 0,
+    "title": "الدرس 01: مقدمة عن التوحيد"
+  },
+  {
+    "id": "qa-2",
+    "courseId": "course-qawaid-arba",
+    "index": 1,
+    "title": "الدرس 02: القاعدة الأولى"
+  },
+  {
+    "id": "qa-3",
+    "courseId": "course-qawaid-arba",
+    "index": 2,
+    "title": "الدرس 03: القاعدة الثانية"
+  },
+  {
+    "id": "qa-4",
+    "courseId": "course-qawaid-arba",
+    "index": 3,
+    "title": "الدرس 04: القاعدة الثالثة (1)"
+  },
+  {
+    "id": "qa-5",
+    "courseId": "course-qawaid-arba",
+    "index": 4,
+    "title": "الدرس 05: القاعدة الثالثة (2)"
+  },
+  {
+    "id": "qa-6",
+    "courseId": "course-qawaid-arba",
+    "index": 5,
+    "title": "الدرس 06: القاعدة الرابعة وخاتمة"
+  },
+  {
+    "id": "cw-1",
+    "courseId": "course-wasitiyyah",
+    "index": 0,
+    "title": "سيرة المؤلف"
+  },
+  {
+    "id": "cw-2",
+    "courseId": "course-wasitiyyah",
+    "index": 1,
+    "title": "مقدمة عن الكتاب"
+  },
+  {
+    "id": 3,
+    "courseId": "course-wasitiyyah",
+    "index": 2,
+    "title": "وصية محمد"
+  },
+  {
+    "id": 4,
+    "courseId": "course-wasitiyyah",
+    "index": 3,
+    "title": "فضل التوحيد"
+  },
+  {
+    "id": 5,
+    "courseId": "course-wasitiyyah",
+    "index": 4,
+    "title": "لا إله إلا الله"
+  },
+  {
+    "id": 6,
+    "courseId": "course-wasitiyyah",
+    "index": 5,
+    "title": "أسئلة وأجوبة"
+  },
+  {
+    "id": 7,
+    "courseId": "course-wasitiyyah",
+    "index": 6,
+    "title": "من حقق التوحيد"
+  },
+  {
+    "id": 8,
+    "courseId": "course-wasitiyyah",
+    "index": 7,
+    "title": "دخل الجنة بغير حساب"
+  },
+  {
+    "id": 9,
+    "courseId": "course-wasitiyyah",
+    "index": 8,
+    "title": "الشرك"
+  },
+  {
+    "id": 10,
+    "courseId": "course-wasitiyyah",
+    "index": 9,
+    "title": "الخوف من الشرك"
+  },
+  {
+    "id": 11,
+    "courseId": "course-wasitiyyah",
+    "index": 10,
+    "title": "شهادة أن لا إله إلا الله"
+  },
+  {
+    "id": 12,
+    "courseId": "course-wasitiyyah",
+    "index": 11,
+    "title": "هذه سبيلي"
+  },
+  {
+    "id": 13,
+    "courseId": "course-wasitiyyah",
+    "index": 12,
+    "title": "تفسير التوحيد"
+  },
+  {
+    "id": 14,
+    "courseId": "course-wasitiyyah",
+    "index": 13,
+    "title": "تفسير الشهادة"
+  },
+  {
+    "id": 15,
+    "courseId": "course-wasitiyyah",
+    "index": 14,
+    "title": "لبس الحلقة"
+  },
+  {
+    "id": 16,
+    "courseId": "course-wasitiyyah",
+    "index": 15,
+    "title": "لبس الخيط"
+  },
+  {
+    "id": 17,
+    "courseId": "course-wasitiyyah",
+    "index": 16,
+    "title": "الرقية"
+  },
+  {
+    "id": 18,
+    "courseId": "course-wasitiyyah",
+    "index": 17,
+    "title": "التمائم"
+  },
+  {
+    "id": 19,
+    "courseId": "course-wasitiyyah",
+    "index": 18,
+    "title": "من تبرك بشجر"
+  },
+  {
+    "id": 20,
+    "courseId": "course-wasitiyyah",
+    "index": 19,
+    "title": "من تبرك بشجر (تابع)"
+  },
+  {
+    "id": 21,
+    "courseId": "course-wasitiyyah",
+    "index": 20,
+    "title": "الذبح لغير الله"
+  },
+  {
+    "id": 22,
+    "courseId": "course-wasitiyyah",
+    "index": 21,
+    "title": "دخل النار في ذباب"
+  },
+  {
+    "id": 23,
+    "courseId": "course-wasitiyyah",
+    "index": 22,
+    "title": "أوف بنذرك"
+  },
+  {
+    "id": 24,
+    "courseId": "course-wasitiyyah",
+    "index": 23,
+    "title": "الذبح بمكان يذبح فيه لغير الله"
+  },
+  {
+    "id": 25,
+    "courseId": "course-wasitiyyah",
+    "index": 24,
+    "title": "النذر لغير الله"
+  },
+  {
+    "id": 26,
+    "courseId": "course-wasitiyyah",
+    "index": 25,
+    "title": "الاستعاذة بغير الله"
+  },
+  {
+    "id": 27,
+    "courseId": "course-wasitiyyah",
+    "index": 26,
+    "title": "الاستغاثة بغير الله"
+  },
+  {
+    "id": 28,
+    "courseId": "course-wasitiyyah",
+    "index": 27,
+    "title": "ويكشف السوء"
+  },
+  {
+    "id": 29,
+    "courseId": "course-wasitiyyah",
+    "index": 28,
+    "title": "التمثيل بالقتلى"
+  },
+  {
+    "id": 30,
+    "courseId": "course-wasitiyyah",
+    "index": 29,
+    "title": "أيشركون ما لا يخلق شيئا"
+  },
+  {
+    "id": 31,
+    "courseId": "course-wasitiyyah",
+    "index": 30,
+    "title": "العلي الكبير"
+  },
+  {
+    "id": 32,
+    "courseId": "course-wasitiyyah",
+    "index": 31,
+    "title": "قالوا ماذا قال ربكم"
+  },
+  {
+    "id": 33,
+    "courseId": "course-wasitiyyah",
+    "index": 32,
+    "title": "الشفاعة"
+  },
+  {
+    "id": 34,
+    "courseId": "course-wasitiyyah",
+    "index": 33,
+    "title": "قل لله الشفاعة جميعا"
+  },
+  {
+    "id": 35,
+    "courseId": "course-wasitiyyah",
+    "index": 34,
+    "title": "الهداية"
+  },
+  {
+    "id": 36,
+    "courseId": "course-wasitiyyah",
+    "index": 35,
+    "title": "الأعمال بالخواتيم"
+  },
+  {
+    "id": 37,
+    "courseId": "course-wasitiyyah",
+    "index": 36,
+    "title": "سبب كبر بني آدم"
+  },
+  {
+    "id": 38,
+    "courseId": "course-wasitiyyah",
+    "index": 37,
+    "title": "الغلو في قبور الصالحين"
+  },
+  {
+    "id": 39,
+    "courseId": "course-wasitiyyah",
+    "index": 38,
+    "title": "أوثان تعبد من دون الله"
+  },
+  {
+    "id": 40,
+    "courseId": "course-wasitiyyah",
+    "index": 39,
+    "title": "شدة الغضب من الله"
+  },
+  {
+    "id": 41,
+    "courseId": "course-wasitiyyah",
+    "index": 40,
+    "title": "السحر"
+  },
+  {
+    "id": 42,
+    "courseId": "course-wasitiyyah",
+    "index": 41,
+    "title": "سواحر"
+  },
+  {
+    "id": 43,
+    "courseId": "course-wasitiyyah",
+    "index": 42,
+    "title": "أنواع السحر"
+  },
+  {
+    "id": 44,
+    "courseId": "course-wasitiyyah",
+    "index": 43,
+    "title": "إن من البيان لسحرا"
+  },
+  {
+    "id": 45,
+    "courseId": "course-wasitiyyah",
+    "index": 44,
+    "title": "التطير"
+  },
+  {
+    "id": 46,
+    "courseId": "course-wasitiyyah",
+    "index": 45,
+    "title": "الكهان"
+  },
+  {
+    "id": 47,
+    "courseId": "course-wasitiyyah",
+    "index": 46,
+    "title": "أسئلة وأجوبة"
+  },
+  {
+    "id": 48,
+    "courseId": "course-wasitiyyah",
+    "index": 47,
+    "title": "النشرة"
+  },
+  {
+    "id": 49,
+    "courseId": "course-wasitiyyah",
+    "index": 48,
+    "title": "ليس منا من تطير"
+  },
+  {
+    "id": 50,
+    "courseId": "course-wasitiyyah",
+    "index": 49,
+    "title": "التطير (تابع)"
+  },
+  {
+    "id": 51,
+    "courseId": "course-wasitiyyah",
+    "index": 50,
+    "title": "التنجيم"
+  },
+  {
+    "id": 52,
+    "courseId": "course-wasitiyyah",
+    "index": 51,
+    "title": "من صدق بشيء من السحر"
+  },
+  {
+    "id": 53,
+    "courseId": "course-wasitiyyah",
+    "index": 52,
+    "title": "الاستسقاء بالأنواء"
+  },
+  {
+    "id": 54,
+    "courseId": "course-wasitiyyah",
+    "index": 53,
+    "title": "أنداد"
+  },
+  {
+    "id": 55,
+    "courseId": "course-wasitiyyah",
+    "index": 54,
+    "title": "حلاوة الإيمان"
+  },
+  {
+    "id": 56,
+    "courseId": "course-wasitiyyah",
+    "index": 55,
+    "title": "ضعف اليقين"
+  },
+  {
+    "id": 57,
+    "courseId": "course-wasitiyyah",
+    "index": 56,
+    "title": "ذلكم الشيطان"
+  },
+  {
+    "id": 58,
+    "courseId": "course-wasitiyyah",
+    "index": 57,
+    "title": "إخلاص الخوف لله"
+  },
+  {
+    "id": 59,
+    "courseId": "course-wasitiyyah",
+    "index": 58,
+    "title": "التوكل"
+  },
+  {
+    "id": 60,
+    "courseId": "course-wasitiyyah",
+    "index": 59,
+    "title": "مكر الله"
+  },
+  {
+    "id": 61,
+    "courseId": "course-wasitiyyah",
+    "index": 60,
+    "title": "وجلت قلوبهم"
+  },
+  {
+    "id": 62,
+    "courseId": "course-wasitiyyah",
+    "index": 61,
+    "title": "سخط الله"
+  },
+  {
+    "id": 63,
+    "courseId": "course-wasitiyyah",
+    "index": 62,
+    "title": "الرياء"
+  },
+  {
+    "id": 64,
+    "courseId": "course-wasitiyyah",
+    "index": 63,
+    "title": "التحاكم إلى الطاغوت"
+  },
+  {
+    "id": 65,
+    "courseId": "course-wasitiyyah",
+    "index": 64,
+    "title": "أكبر الكبائر"
+  },
+  {
+    "id": 66,
+    "courseId": "course-wasitiyyah",
+    "index": 65,
+    "title": "الصبر على أقدار الله"
+  },
+  {
+    "id": 67,
+    "courseId": "course-wasitiyyah",
+    "index": 66,
+    "title": "من جحد شيئا من الأسماء والصفات"
+  },
+  {
+    "id": 68,
+    "courseId": "course-wasitiyyah",
+    "index": 67,
+    "title": "يكفرون بالرحمن"
+  },
+  {
+    "id": 69,
+    "courseId": "course-wasitiyyah",
+    "index": 68,
+    "title": "معرفة النعمة"
+  },
+  {
+    "id": 70,
+    "courseId": "course-wasitiyyah",
+    "index": 69,
+    "title": "ما شاء الله ثم شاء فلان"
+  },
+  {
+    "id": 71,
+    "courseId": "course-wasitiyyah",
+    "index": 70,
+    "title": "الحلف بالله"
+  },
+  {
+    "id": 72,
+    "courseId": "course-wasitiyyah",
+    "index": 71,
+    "title": "أجعلتني لله ندا"
+  },
+  {
+    "id": 73,
+    "courseId": "course-wasitiyyah",
+    "index": 72,
+    "title": "سب الدهر"
+  },
+  {
+    "id": 74,
+    "courseId": "course-wasitiyyah",
+    "index": 73,
+    "title": "احترام أسماء الله"
+  },
+  {
+    "id": 75,
+    "courseId": "course-wasitiyyah",
+    "index": 74,
+    "title": "الفرق بين العفو والغلظة"
+  },
+  {
+    "id": 76,
+    "courseId": "course-wasitiyyah",
+    "index": 75,
+    "title": "القصة العجيبة"
+  },
+  {
+    "id": 77,
+    "courseId": "course-wasitiyyah",
+    "index": 76,
+    "title": "الإلحاد في الأسماء"
+  },
+  {
+    "id": 78,
+    "courseId": "course-wasitiyyah",
+    "index": 77,
+    "title": "تفسير السلام"
+  },
+  {
+    "id": 79,
+    "courseId": "course-wasitiyyah",
+    "index": 78,
+    "title": "الاستثناء في الدعاء"
+  },
+  {
+    "id": 80,
+    "courseId": "course-wasitiyyah",
+    "index": 79,
+    "title": "تحقيق التوحيد في الألفاظ"
+  },
+  {
+    "id": 81,
+    "courseId": "course-wasitiyyah",
+    "index": 80,
+    "title": "ما جاء في اللو"
+  },
+  {
+    "id": 82,
+    "courseId": "course-wasitiyyah",
+    "index": 81,
+    "title": "سب الريح"
+  },
+  {
+    "id": 83,
+    "courseId": "course-wasitiyyah",
+    "index": 82,
+    "title": "لا يرد من سأل بالله"
+  },
+  {
+    "id": 84,
+    "courseId": "course-wasitiyyah",
+    "index": 83,
+    "title": "السؤال بوجه الله"
+  },
+  {
+    "id": 85,
+    "courseId": "course-wasitiyyah",
+    "index": 84,
+    "title": "منكر القدر"
+  },
+  {
+    "id": 86,
+    "courseId": "course-wasitiyyah",
+    "index": 85,
+    "title": "إزالة الشبهة"
+  },
+  {
+    "id": 87,
+    "courseId": "course-wasitiyyah",
+    "index": 86,
+    "title": "كثرة الحلف"
+  },
+  {
+    "id": 88,
+    "courseId": "course-wasitiyyah",
+    "index": 87,
+    "title": "يشهدون ولا يستشهدون"
+  },
+  {
+    "id": 89,
+    "courseId": "course-wasitiyyah",
+    "index": 88,
+    "title": "الإقسام على الله"
+  },
+  {
+    "id": 90,
+    "courseId": "course-wasitiyyah",
+    "index": 89,
+    "title": "حمى التوحيد"
+  },
+  {
+    "id": 91,
+    "courseId": "course-wasitiyyah",
+    "index": 90,
+    "title": "مسيرة خمسمائة سنة"
+  },
+  {
+    "id": "dd-1",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 0,
+    "title": "المقدمة"
+  },
+  {
+    "id": "dd-2",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 1,
+    "title": "الدعاء من أنفع الأدوية"
+  },
+  {
+    "id": "dd-3",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 2,
+    "title": "حضور القلب مع الدعاء"
+  },
+  {
+    "id": "dd-4",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 3,
+    "title": "آثار الدعاء والإجابة"
+  },
+  {
+    "id": "dd-5",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 4,
+    "title": "ترتيب الله لحصول الخيرات"
+  },
+  {
+    "id": "dd-6",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 5,
+    "title": "إن الله يغفر الذنوب جميعا"
+  },
+  {
+    "id": "dd-7",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 6,
+    "title": "حسن الظن بالله"
+  },
+  {
+    "id": "dd-8",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 7,
+    "title": "حديث البراء بن عازب"
+  },
+  {
+    "id": "dd-9",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 8,
+    "title": "من اشترى ثوبا بعشرة دراهم"
+  },
+  {
+    "id": "dd-10",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 9,
+    "title": "دخل رجل الجنة في ذباب"
+  },
+  {
+    "id": "dd-11",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 10,
+    "title": "من رجا شيئا استلزم أسبابه"
+  },
+  {
+    "id": "dd-12",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 11,
+    "title": "دواء الداء"
+  },
+  {
+    "id": "dd-13",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 12,
+    "title": "خمس خصال يا معشر المهاجرين"
+  },
+  {
+    "id": "dd-14",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 13,
+    "title": "ذكر الإمام أحمد في المسند"
+  },
+  {
+    "id": "dd-15",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 14,
+    "title": "نكتة الذنب في القلب"
+  },
+  {
+    "id": "dd-16",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 15,
+    "title": "آثار المعاصي القبيحة"
+  },
+  {
+    "id": "dd-17",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 16,
+    "title": "آثار المعاصي في الأرض"
+  },
+  {
+    "id": "dd-18",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 17,
+    "title": "تأثير المعاصي"
+  },
+  {
+    "id": "dd-19",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 18,
+    "title": "ضعف القلب بالذنوب"
+  },
+  {
+    "id": "dd-20",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 19,
+    "title": "ضعف سير القلب إلى الله"
+  },
+  {
+    "id": "dd-21",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 20,
+    "title": "عمى بصيرة القلب"
+  },
+  {
+    "id": "dd-22",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 21,
+    "title": "نقصان العقل بالذنوب"
+  },
+  {
+    "id": "dd-23",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 22,
+    "title": "سفالة صاحب المعصية"
+  },
+  {
+    "id": "dd-24",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 23,
+    "title": "الجرأة على المعصية"
+  },
+  {
+    "id": "dd-25",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 24,
+    "title": "عمى القلب"
+  },
+  {
+    "id": "dd-26",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 25,
+    "title": "مدد العدو على الإنسان"
+  },
+  {
+    "id": "dd-27",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 26,
+    "title": "ثغر اللسان"
+  },
+  {
+    "id": "dd-28",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 27,
+    "title": "نسيان العبد نفسه"
+  },
+  {
+    "id": "dd-29",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 28,
+    "title": "البعد عن ولاية الله"
+  },
+  {
+    "id": "dd-30",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 29,
+    "title": "العقوبات المؤثرة في القلب"
+  },
+  {
+    "id": "dd-31",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 30,
+    "title": "العقوبات القدرية"
+  },
+  {
+    "id": "dd-32",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 31,
+    "title": "استحضار العقوبات"
+  },
+  {
+    "id": "dd-33",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 32,
+    "title": "تفاوت الذنوب والعقوبات"
+  },
+  {
+    "id": "dd-34",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 33,
+    "title": "الكبائر والصغائر"
+  },
+  {
+    "id": "dd-35",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 34,
+    "title": "شرك الأفعال"
+  },
+  {
+    "id": "dd-36",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 35,
+    "title": "الشرك في الأفعال"
+  },
+  {
+    "id": "dd-37",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 36,
+    "title": "فتح باب الجواب"
+  },
+  {
+    "id": "dd-38",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 37,
+    "title": "أصل عظيم في المسألة"
+  },
+  {
+    "id": "dd-39",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 38,
+    "title": "من هان عليه أمر الله"
+  },
+  {
+    "id": "dd-40",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 39,
+    "title": "الظلم والعدوان"
+  },
+  {
+    "id": "dd-41",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 40,
+    "title": "مفسدة القتل"
+  },
+  {
+    "id": "dd-42",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 41,
+    "title": "مفسدة الزنا"
+  },
+  {
+    "id": "dd-43",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 42,
+    "title": "تتمة مفسدة الزنا"
+  },
+  {
+    "id": "dd-44",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 43,
+    "title": "الخطرات"
+  },
+  {
+    "id": "dd-45",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 44,
+    "title": "الخطرات ومبدؤها"
+  },
+  {
+    "id": "dd-46",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 45,
+    "title": "ورود الخاطر"
+  },
+  {
+    "id": "dd-47",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 46,
+    "title": "حفظ اللفظات"
+  },
+  {
+    "id": "dd-48",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 47,
+    "title": "حفظ اللفظات"
+  },
+  {
+    "id": "dd-49",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 48,
+    "title": "حفظ اللفظات"
+  },
+  {
+    "id": "dd-50",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 49,
+    "title": "حفظ اللفظات"
+  },
+  {
+    "id": "dd-51",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 50,
+    "title": "تحريم الفواحش"
+  },
+  {
+    "id": "dd-52",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 51,
+    "title": "تحريم الفواحش"
+  },
+  {
+    "id": "dd-53",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 52,
+    "title": "تحريم الفواحش"
+  },
+  {
+    "id": "dd-54",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 53,
+    "title": "مفسدة اللواط"
+  },
+  {
+    "id": "dd-55",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 54,
+    "title": "عقوبة الفاحشة"
+  },
+  {
+    "id": "dd-56",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 55,
+    "title": "دواء الداء العضال"
+  },
+  {
+    "id": "dd-57",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 56,
+    "title": "نور القلب"
+  },
+  {
+    "id": "dd-58",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 57,
+    "title": "تعلق القلب"
+  },
+  {
+    "id": "dd-59",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 58,
+    "title": "اجتماع المحبة"
+  },
+  {
+    "id": "dd-60",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 59,
+    "title": "عيشة المحبين"
+  },
+  {
+    "id": "dd-61",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 60,
+    "title": "مراتب الحب"
+  },
+  {
+    "id": "dd-62",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 61,
+    "title": "الخلة"
+  },
+  {
+    "id": "dd-63",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 62,
+    "title": "الخلة"
+  },
+  {
+    "id": "dd-64",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 63,
+    "title": "المحبوب قسمان"
+  },
+  {
+    "id": "dd-65",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 64,
+    "title": "أصل العمل الحب"
+  },
+  {
+    "id": "dd-66",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 65,
+    "title": "تتمة أصل العمل"
+  },
+  {
+    "id": "dd-67",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 66,
+    "title": "أنواع المحبة"
+  },
+  {
+    "id": "dd-68",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 67,
+    "title": "إرادة ومحبة"
+  },
+  {
+    "id": "dd-69",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 68,
+    "title": "أصل كل دين"
+  },
+  {
+    "id": "dd-70",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 69,
+    "title": "مفاسد عشق الصور"
+  },
+  {
+    "id": "dd-71",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 70,
+    "title": "عشق الصور"
+  },
+  {
+    "id": "dd-72",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 71,
+    "title": "عشق الصور"
+  },
+  {
+    "id": "dd-73",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 72,
+    "title": "مقامات العاشق"
+  },
+  {
+    "id": "dd-74",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 73,
+    "title": "مقامات العاشق"
+  },
+  {
+    "id": "dd-75",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 74,
+    "title": "مقامات العاشق"
+  },
+  {
+    "id": "dd-76",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 75,
+    "title": "مقامات العاشق"
+  },
+  {
+    "id": "dd-77",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 76,
+    "title": "مقامات العاشق"
+  },
+  {
+    "id": "dd-78",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 77,
+    "title": "كمال اللذة"
+  },
+  {
+    "id": "dd-79",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 78,
+    "title": "لذات الدنيا"
+  },
+  {
+    "id": "dd-80",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 79,
+    "title": "أنواع الحب"
+  },
+  {
+    "id": "dd-81",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 80,
+    "title": "محبة الزوجات"
+  },
+  {
+    "id": "dd-82",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 81,
+    "title": "حب النبي ﷺ"
+  },
+  {
+    "id": "dd-83",
+    "courseId": "al-daa-wal-dawaa",
+    "index": 82,
+    "title": "عشق النساء"
+  }
+]

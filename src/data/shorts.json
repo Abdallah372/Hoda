@@ -1,0 +1,29 @@
+[
+  {
+    "id": "short-1",
+    "title": "أهمية التوحيد",
+    "views": "1.2M",
+    "courseId": "course-usul-thalatha",
+    "lectureId": "ut-1",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+  },
+  {
+    "id": "short-2",
+    "title": "من ربك؟",
+    "views": "850K",
+    "courseId": "course-usul-thalatha",
+    "lectureId": "ut-2",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+  },
+  {
+    "id": "short-3",
+    "title": "ما معنى لا إله إلا الله؟",
+    "views": "2.1M",
+    "courseId": "course-usul-thalatha",
+    "lectureId": "ut-5",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+  }
+]

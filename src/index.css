@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-light: #1a6d54;
+  --color-primary: #0f4c3a;
+  --color-primary-dark: #083327;
+  --color-primary-lighter: #eef5f3;
+  --color-accent-light: #f4e9cd;
+  --color-accent: #d4af37;
+  --font-sans: "Readex Pro", "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* 
+  Theme System - Using Pure CSS Variables for Professional Look
+  Designed for Long-Session Learning (Eye Comfort)
+*/
+
+:root {
+  /* Light Mode Palette */
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --muted-text: #475569;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --header-bg: rgba(255, 255, 255, 0.8);
+  --accent: #0f4c3a;
+  --transition-speed: 0.3s;
+
+  /* Reading Experience Variables */
+  --reading-bg: #ffffff;
+  --matn-bg: #fdfbf7; /* Slight warm paper feel */
+  --matn-text: #1a202c;
+  --sharh-text: #4a5568;
+  --highlight-bg: rgba(251, 191, 36, 0.2);
+  --benefit-bg: #f0fdf4;
+  --benefit-border: #bbf7d0;
+  --benefit-title: #166534;
+}
+
+.theme-dark {
+  /* Dark Mode Palette */
+  --bg: #0f172a;
+  --text: #f1f5f9;
+  --muted-text: #94a3b8;
+  --card-bg: #1e293b;
+  --border: #334155;
+  --header-bg: rgba(15, 23, 42, 0.8);
+  --accent: #1a6d54;
+
+  /* Reading Experience Variables */
+  --reading-bg: #0f172a;
+  --matn-bg: #131c2e;
+  --matn-text: #e2e8f0;
+  --sharh-text: #94a3b8;
+  --highlight-bg: rgba(251, 191, 36, 0.1);
+  --benefit-bg: rgba(22, 101, 52, 0.1);
+  --benefit-border: rgba(34, 197, 94, 0.2);
+  --benefit-title: #4ade80;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Readex Pro", "Inter", sans-serif;
+  direction: rtl;
+  transition:
+    background-color var(--transition-speed),
+    color var(--transition-speed);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base Utility Classes using our Theme Variables */
+.bg-theme {
+  background-color: var(--bg);
+}
+.text-theme {
+  color: var(--text);
+}
+.text-muted {
+  color: var(--muted-text);
+}
+.border-theme {
+  border-color: var(--border);
+}
+.card-theme {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+}
+
+.header-theme {
+  background-color: var(--header-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Custom Scrollbar for better UI coherence */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-text);
+}
+
+/* Text Selection Styling (Tadhleel) */
+::selection {
+  background-color: rgba(251, 191, 36, 0.3); /* Amber-400 with opacity */
+  color: inherit;
+}
+.theme-dark ::selection {
+  background-color: rgba(251, 191, 36, 0.2);
+  color: inherit;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
