@@ -1,0 +1,30 @@
+[
+  {
+    "id": "aqidah",
+    "title": "العقيدة والتوحيد",
+    "slug": "aqidah",
+    "icon": "mosque",
+    "color": "emerald"
+  },
+  {
+    "id": "fiqh",
+    "title": "الفقه وأصوله",
+    "slug": "fiqh",
+    "icon": "book-open",
+    "color": "blue"
+  },
+  {
+    "id": "hadith",
+    "title": "الحديث وعلومه",
+    "slug": "hadith",
+    "icon": "scroll",
+    "color": "amber"
+  },
+  {
+    "id": "tazkiyah",
+    "title": "تزكية النفوس",
+    "slug": "tazkiyah",
+    "icon": "heart",
+    "color": "rose"
+  }
+]

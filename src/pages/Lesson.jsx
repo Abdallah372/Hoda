@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
 import { useLesson } from "../hooks/useLesson";
 import { dataService } from "../services/dataService";
@@ -14,7 +15,16 @@ import {
   FileText,
   Youtube,
   Menu,
+  Maximize2,
+  Minimize2,
+  Focus,
+  Play,
 } from "lucide-react";
+import StudyEditor from "../components/StudyEditor";
+import StoryView from "../components/StoryView";
+import { useFocusMode } from "../contexts/FocusModeContext";
+import FocusModeSettings from "../components/FocusModeSettings";
+import ExitConfirmationModal from "../components/ExitConfirmationModal";
 
 const Lesson = () => {
   const { courseId, lessonId } = useParams();
@@ -25,9 +35,9 @@ const Lesson = () => {
 
   // Viewer State
   const [activeTab, setActiveTab] = useState("text"); // 'text', 'pdf', 'notes'
-  const [fontSize, setFontSize] = useState(18);
-  const [lineHeight, setLineHeight] = useState(1.8);
-  const [maxWidth, setMaxWidth] = useState(800);
+  const [fontSize, setFontSize] = useState(20); // Larger default for Arabic
+  const [lineHeight, setLineHeight] = useState(2.0); // Looser leading
+  const [maxWidth, setMaxWidth] = useState(680); // Optimal reading width
 
   // Split Pane State
   const [leftWidth, setLeftWidth] = useState(50); // Percentage
@@ -38,6 +48,13 @@ const Lesson = () => {
 
   // UI State
   const [showToolbar, setShowToolbar] = useState(true);
+  const [showFocusSettings, setShowFocusSettings] = useState(false);
+  const [isBenefitsHidden, setIsBenefitsHidden] = useState(false);
+  const [isTheaterMode, setIsTheaterMode] = useState(false);
+  const [showStoryMode, setShowStoryMode] = useState(false);
+
+  // Focus Mode
+  const { isActive: isFocusModeActive } = useFocusMode();
 
   // Reader Settings Persistence
   useEffect(() => {
@@ -68,12 +85,10 @@ const Lesson = () => {
   };
 
   const exportNote = () => {
-    // HTML based export for Word
     const header =
-      "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body>";
+      "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export Notes</title></head><body>";
     const footer = "</body></html>";
-    const sourceHTML =
-      header + document.getElementById("note-content").value + footer;
+    const sourceHTML = header + note + footer;
 
     const source =
       "data:application/vnd.ms-word;charset=utf-8," +
@@ -125,9 +140,9 @@ const Lesson = () => {
     return <div className="p-20 text-center text-red-500">حدث خطأ</div>;
 
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)] overflow-hidden bg-slate-50 dark:bg-slate-900 fade-in select-none">
+    <div className="flex flex-col h-[calc(100vh-4rem)] overflow-hidden bg-app fade-in select-none">
       {/* Top Bar */}
-      <div className="h-12 sm:h-14 shrink-0 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-between px-3 sm:px-4 z-20">
+      <div className="h-12 sm:h-14 shrink-0 border-b border-subtle bg-surface flex items-center justify-between px-3 sm:px-4 z-20">
         <div className="flex items-center gap-2 sm:gap-3 overflow-hidden">
           <Link
             to={`/course/${courseId}`}
@@ -136,18 +151,46 @@ const Lesson = () => {
             <ChevronRight size={18} className="rtl:rotate-180 sm:w-5" />
           </Link>
           <div className="flex flex-col min-w-0">
-            <h1 className="font-bold text-xs sm:text-sm md:text-base truncate text-slate-900 dark:text-white leading-tight">
+            <h1 className="font-bold text-xs sm:text-sm md:text-base truncate text-primary leading-tight">
               {lesson.title}
             </h1>
-            <span className="text-[9px] sm:text-[10px] text-slate-500 truncate">
+            <span className="text-[9px] sm:text-[10px] text-muted truncate">
               {course.title}
             </span>
           </div>
         </div>
 
         <div className="flex items-center gap-1 sm:gap-2">
+          {/* Theater Mode Button */}
+          <button
+            onClick={() => setIsTheaterMode(!isTheaterMode)}
+            className={`p-1.5 sm:p-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 sm:gap-2 ${
+              isTheaterMode
+                ? "bg-primary text-white shadow-lg shadow-primary/30 ring-2 ring-primary/20"
+                : "bg-slate-100 dark:bg-slate-800 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700"
+            }`}
+            title={isTheaterMode ? "إظهار النص" : "تكبير الفيديو"}
+          >
+            {isTheaterMode ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+            <span className="hidden md:inline">
+              {isTheaterMode ? "الوضع العادي" : "تكبير الفيديو"}
+            </span>
+          </button>
+
+          {/* Focus Mode Button */}
+          {!isFocusModeActive && (
+            <button
+              onClick={() => setShowFocusSettings(true)}
+              className="btn-primary text-[10px] sm:text-xs px-2 sm:px-3 py-1 sm:py-1.5 flex items-center gap-1.5 sm:gap-2 shadow-lg shadow-primary/20 animate-pulse-subtle"
+              title="تفعيل وضع التركيز"
+            >
+              <Focus size={14} />
+              <span className="hidden sm:inline">وضع التركيز</span>
+            </button>
+          )}
+
           {/* Toolbar Toggle in Top Bar */}
-          {activeTab === "text" && (
+          {activeTab === "text" && !isTheaterMode && (
             <button
               onClick={() => setShowToolbar(!showToolbar)}
               className={`p-1.5 sm:p-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 sm:gap-2 ${
@@ -179,54 +222,67 @@ const Lesson = () => {
         </div>
       </div>
 
-      {/* Split Content */}
+      {/* Split Content: Elastic Layout */}
       <div className="flex-grow flex flex-col lg:flex-row overflow-hidden relative">
-        {/* RIGHT PANE: Video */}
+        {/* RIGHT PANE: Video (Takes priority on mobile) */}
         <div
           style={{
-            width: window.innerWidth >= 1024 ? `${leftWidth}%` : "100%",
-            height: window.innerWidth < 1024 ? "35vh" : "100%",
+            width: isTheaterMode
+              ? "100%"
+              : window.innerWidth >= 1024
+                ? `${leftWidth}%`
+                : "100%",
+            height:
+              window.innerWidth < 1024 && !isTheaterMode ? "30vh" : "100%",
+            maxHeight: window.innerWidth < 1024 ? "400px" : "none",
           }}
-          className="bg-black flex flex-col relative shrink-0 transition-all duration-75 lg:order-last"
+          className="bg-black flex flex-col relative shrink-0 transition-all duration-300 ease-in-out lg:order-last z-10 shadow-2xl"
         >
-          <iframe
-            src={`https://www.youtube.com/embed/${
-              lesson.youtubeId ||
-              (course.playlistId
-                ? `videoseries?list=${course.playlistId}&index=${lesson.index}`
-                : "")
-            }&rel=0&modestbranding=1`}
-            className="w-full h-full object-contain"
-            allowFullScreen
-            title={lesson.title}
-          />
-          {/* Video Nav Overlay */}
-          <div className="absolute top-2 sm:top-4 left-2 sm:left-4 flex gap-2 pointer-events-none">
-            {nextLesson && (
-              <Link
-                to={`/lesson/${courseId}/${nextLesson.id}`}
-                className="pointer-events-auto bg-black/50 hover:bg-black/70 text-white px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs backdrop-blur-md flex items-center gap-1 transition-all"
-              >
-                التالي <ChevronLeft size={12} className="sm:w-3.5" />
-              </Link>
-            )}
+          <div className="relative w-full h-full bg-slate-900 group">
+            <iframe
+              src={`https://www.youtube.com/embed/${
+                lesson.youtubeId ||
+                (course.playlistId
+                  ? `videoseries?list=${course.playlistId}&index=${lesson.index}`
+                  : "")
+              }&rel=0&modestbranding=1`}
+              className="w-full h-full object-contain"
+              allowFullScreen
+              title={lesson.title}
+            />
+
+            {/* Playback Controls Overlay (Mobile optimized) */}
+            <div className="absolute top-4 left-4 flex gap-2 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+              {nextLesson && (
+                <Link
+                  to={`/lesson/${courseId}/${nextLesson.id}`}
+                  className="pointer-events-auto bg-black/60 hover:bg-black text-white px-4 py-2 rounded-full text-xs backdrop-blur-md flex items-center gap-2 transition-all shadow-lg"
+                >
+                  التالي <ChevronLeft size={14} />
+                </Link>
+              )}
+            </div>
           </div>
         </div>
 
-        {/* RESIZER HANDLE */}
-        <div
-          className="hidden lg:flex w-4 bg-slate-100 dark:bg-slate-800 hover:bg-primary/20 cursor-col-resize items-center justify-center z-10 -ml-2 -mr-2 relative"
-          onMouseDown={handleMouseDown}
-        >
-          <div className="w-1 h-8 bg-slate-300 dark:bg-slate-600 rounded-full"></div>
-        </div>
+        {/* RESIZER HANDLE: Desktop Only */}
+        {!isTheaterMode && (
+          <div
+            className="hidden lg:flex w-2 bg-subtle hover:bg-primary/30 cursor-col-resize items-center justify-center z-20 relative active:bg-primary transition-colors"
+            onMouseDown={handleMouseDown}
+          >
+            <div className="w-1 h-12 bg-muted/30 rounded-full" />
+          </div>
+        )}
 
-        {/* LEFT PANE: Content (Book/Notes) */}
+        {/* LEFT PANE: Content (The Elastic Reader) */}
         <div
           style={{
             width: window.innerWidth >= 1024 ? `${100 - leftWidth}%` : "100%",
           }}
-          className="flex-grow flex flex-col h-full bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 overflow-hidden relative"
+          className={`flex-grow flex flex-col min-h-0 bg-surface border-subtle overflow-hidden relative transition-all duration-300 ${
+            isTheaterMode ? "hidden" : "flex"
+          }`}
         >
           {/* Tabs */}
           <div className="flex border-b border-slate-200 dark:border-slate-800 shrink-0 bg-slate-50 dark:bg-slate-950 px-2 sm:px-0">
@@ -238,7 +294,7 @@ const Lesson = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 py-2 sm:py-3 text-[11px] sm:text-sm font-bold flex items-center justify-center gap-1.5 sm:gap-2 border-b-2 transition-all ${activeTab === tab.id ? "border-primary text-primary bg-white dark:bg-slate-900" : "border-transparent text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"}`}
+                className={`flex-1 py-2 sm:py-3 text-[11px] sm:text-sm font-bold flex items-center justify-center gap-1.5 sm:gap-2 border-b-2 transition-all ${activeTab === tab.id ? "border-primary text-primary bg-surface" : "border-transparent text-muted hover:bg-black/5 dark:hover:bg-white/5"}`}
               >
                 <tab.icon size={14} className="sm:w-4" /> {tab.label}
               </button>
@@ -248,136 +304,177 @@ const Lesson = () => {
           <div className="flex-grow overflow-hidden relative bg-[var(--reading-bg)] scroll-smooth">
             {/* TEXT MODE */}
             {activeTab === "text" && (
-              <div className="h-full flex flex-col overflow-hidden relative">
-                {/* Enhanced Toolbar with Animation */}
+              <div className="h-full flex flex-col overflow-hidden relative bg-white dark:bg-slate-900">
+                {/* Modern Floating Toolbar */}
                 <div
-                  className={`overflow-hidden transition-all duration-500 ease-in-out border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 sticky top-0 z-10 shadow-sm ${
+                  className={`transition-all duration-300 border-b border-slate-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-20 ${
                     showToolbar
-                      ? "max-h-40 opacity-100 py-2 sm:py-3 px-3 sm:px-4"
-                      : "max-h-0 opacity-0 py-0 px-3 sm:px-4 border-none pointer-events-none"
+                      ? "translate-y-0 opacity-100 py-2 sm:py-3 px-4"
+                      : "-translate-y-full opacity-0 py-0 h-0 overflow-hidden"
                   }`}
                 >
-                  <div className="flex flex-wrap items-center gap-3 sm:gap-4 transition-colors">
-                    <div className="flex items-center gap-1 p-0.5 sm:p-1 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                  <div className="flex items-center justify-between max-w-3xl mx-auto w-full gap-4">
+                    <div className="flex items-center gap-2 bg-slate-100/50 dark:bg-slate-800/50 p-1 rounded-full">
                       <button
-                        title="تصغير الخط"
                         onClick={() => setFontSize((f) => Math.max(14, f - 2))}
-                        className="p-1 sm:p-1.5 hover:bg-white dark:hover:bg-slate-700 rounded-md text-slate-600 dark:text-slate-300 transition-all active:scale-95"
+                        className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-all"
                       >
-                        <Type size={12} className="sm:w-3.5" />
+                        <Type size={12} />
                       </button>
-                      <span className="text-[10px] font-bold w-5 sm:w-6 text-center text-slate-500 tabular-nums">
+                      <span className="text-[10px] font-bold w-6 text-center text-slate-400 tabular-nums">
                         {fontSize}
                       </span>
                       <button
-                        title="تكبير الخط"
                         onClick={() => setFontSize((f) => Math.min(36, f + 2))}
-                        className="p-1 sm:p-1.5 hover:bg-white dark:hover:bg-slate-700 rounded-md text-slate-600 dark:text-slate-300 transition-all active:scale-95"
+                        className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-all"
                       >
-                        <Type size={16} className="sm:w-4.5" />
+                        <Type size={16} />
                       </button>
                     </div>
 
-                    <div className="flex items-center gap-1 p-0.5 sm:p-1 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                    <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 mx-2 hidden sm:block" />
+
+                    <div className="flex items-center gap-2">
                       <button
-                        title="تباعد الأسطر"
                         onClick={() =>
                           setLineHeight((l) => (l >= 2.4 ? 1.6 : l + 0.2))
                         }
-                        className="p-1 sm:p-1.5 hover:bg-white dark:hover:bg-slate-700 rounded-md text-slate-600 dark:text-slate-300 transition-all"
+                        className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-all"
+                        title="تباعد الأسطر"
                       >
-                        <Menu size={14} className="sm:w-4" />
+                        <Menu size={18} />
+                      </button>
+                      <button
+                        onClick={() =>
+                          setMaxWidth((w) => (w <= 700 ? 1100 : 700))
+                        }
+                        className={`p-2 rounded-full transition-all ${
+                          maxWidth <= 700
+                            ? "bg-primary/10 text-primary"
+                            : "hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500"
+                        }`}
+                        title={maxWidth <= 700 ? "وضع القراءة" : "عرض كامل"}
+                      >
+                        {maxWidth <= 700 ? (
+                          <Maximize2 size={16} />
+                        ) : (
+                          <Settings size={16} />
+                        )}
                       </button>
                     </div>
-
-                    <div className="h-6 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block" />
-
-                    <button
-                      onClick={() =>
-                        setMaxWidth((w) => (w <= 700 ? 1100 : 700))
-                      }
-                      className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-[10px] sm:text-xs font-bold transition-all flex items-center gap-1.5 sm:gap-2 ${
-                        maxWidth <= 700
-                          ? "bg-primary/10 text-primary border border-primary/20"
-                          : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-transparent"
-                      }`}
-                    >
-                      <Settings size={12} className="sm:w-3.5" />
-                      {maxWidth <= 700 ? "وضع القراءة" : "عرض كامل"}
-                    </button>
                   </div>
                 </div>
 
                 {/* Main Content Area */}
-                <div className="flex-grow overflow-y-auto px-4 py-8 sm:px-8 md:px-12 bg-[var(--matn-bg)] transition-colors">
+                <div className="flex-grow overflow-y-auto px-4 py-8 sm:px-6 bg-white dark:bg-slate-900 transition-colors">
                   <div
                     className="mx-auto transition-all duration-300 ease-in-out"
                     style={{
                       maxWidth: `${maxWidth}px`,
-                      fontSize: `${fontSize}px`,
-                      lineHeight: lineHeight,
-                      color: "var(--matn-text)",
-                      fontFamily: "'Readex Pro', sans-serif",
                     }}
                   >
-                    {/* Lesson Benefits Section */}
+                    {/* Collapsible Benefits Section */}
                     {lesson.benefits && (
-                      <div className="mb-8 sm:mb-12 p-5 sm:p-8 bg-[var(--benefit-bg)] border-2 border-[var(--benefit-border)] rounded-2xl sm:rounded-3xl shadow-sm relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110" />
-                        <h3 className="text-[var(--benefit-title)] font-black text-lg mb-6 flex items-center gap-3">
-                          <CheckCircle size={22} className="shrink-0" />
-                          فوائد ومنتقيات الدرس
-                        </h3>
-                        <ul className="space-y-4 relative z-10">
-                          {lesson.benefits.map((benefit, idx) => (
-                            <li
-                              key={idx}
-                              className="flex gap-3 text-slate-800 dark:text-slate-100 text-[0.95em] leading-relaxed"
+                      <>
+                        <div
+                          className={`mb-8 transition-all duration-300 ease-in-out overflow-hidden ${
+                            isBenefitsHidden
+                              ? "bg-indigo-50 dark:bg-indigo-900/10 rounded-xl"
+                              : "bg-indigo-50/50 dark:bg-slate-800/50 rounded-3xl"
+                          }`}
+                        >
+                          <div className="flex items-center justify-between p-4">
+                            <button
+                              onClick={() =>
+                                setIsBenefitsHidden(!isBenefitsHidden)
+                              }
+                              className="flex items-center gap-2 text-sm font-bold text-indigo-600 dark:text-indigo-400 hover:opacity-80 transition-opacity"
                             >
-                              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[var(--benefit-title)] shrink-0 opacity-40" />
-                              {benefit}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                              {isBenefitsHidden ? (
+                                <>
+                                  <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
+                                  إظهار الفوائد
+                                </>
+                              ) : (
+                                <div className="flex items-center gap-2">
+                                  <CheckCircle size={18} />
+                                  <span className="text-slate-900 dark:text-white">
+                                    فوائد الدرس
+                                  </span>
+                                </div>
+                              )}
+                            </button>
+
+                            <div className="flex items-center gap-2">
+                              <button
+                                onClick={() => setShowStoryMode(true)}
+                                className="text-[10px] font-bold text-white px-3 py-1.5 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 shadow-lg shadow-purple-500/30 flex items-center gap-1 transition-all animate-pulse-subtle"
+                              >
+                                <Play size={10} className="fill-current" />
+                                عرض كـ Story
+                              </button>
+                              {!isBenefitsHidden && (
+                                <button
+                                  onClick={() => setIsBenefitsHidden(true)}
+                                  className="text-[10px] font-bold text-slate-400 hover:text-red-500 px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all"
+                                >
+                                  إخفاء
+                                </button>
+                              )}
+                            </div>
+                          </div>
+
+                          {!isBenefitsHidden && (
+                            <div className="px-5 pb-6 animate-in slide-in-from-top-2 duration-200">
+                              <ul className="space-y-3">
+                                {lesson.benefits.map((benefit, idx) => (
+                                  <li
+                                    key={idx}
+                                    className="flex items-start gap-3 text-slate-700 dark:text-slate-300 text-[0.95em] leading-relaxed"
+                                  >
+                                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0 opacity-60" />
+                                    {benefit}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      </>
                     )}
 
-                    {/* Matn / Text Section */}
-                    <div className="matn-content space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                      <div className="border-b-2 border-primary/10 pb-6 mb-10">
-                        <span className="text-primary/60 text-xs font-black tracking-widest uppercase mb-2 block">
-                          نص المتن المشروح
-                        </span>
-                        <h2 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white leading-tight">
-                          {lesson.title}
-                        </h2>
-                      </div>
-
-                      <article className="prose prose-slate dark:prose-invert max-w-none text-justify">
-                        <p className="mb-8 p-6 bg-slate-50 dark:bg-slate-800/50 rounded-2xl italic text-[var(--sharh-text)] border-r-4 border-primary/20 leading-loose">
-                          (هنا يتم عرض المتن الأصلي للكتاب، محاطاً بالعناية
-                          والتمييز البصري)
-                          <br />
-                          هذا النص تجريبي لمعاينة شكل المتن مع خيارات التنسيق
-                          الجديدة. منصة "هدى" مصممة لتجربة تعليمية هادئة.
-                        </p>
-
-                        <div className="space-y-6 text-[var(--matn-text)]">
-                          <p>
-                            قال المصنف رحمه الله: "هذا هو المتن الذي يتم شرحه في
-                            الدرس". إن طالب العلم يحتاج إلى بيئة قراءة صافية،
-                            تماماً كما يحتاج إلى التركيز مع المعلم. لذلك وفرنا
-                            أدوات التحكم في حجم الخط والمسافات لضمان راحة العين
-                            أثناء الجلسات المطولة.
-                          </p>
-                          <p>
-                            نحن نؤمن بأن "الجمال يخدم العلم"، فالتصميم الجيد ليس
-                            مجرد ألوان، بل هو وظيفة تسهل الوصول للمعلومة وترسخها
-                            في الذهن.
-                          </p>
-                        </div>
-                      </article>
+                    {/* Minimalist Header */}
+                    <div className="mb-10 text-center">
+                      <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight mb-2">
+                        {lesson.title}
+                      </h2>
+                      <div className="h-1 w-20 bg-primary/20 mx-auto rounded-full" />
                     </div>
+
+                    {/* Matn Content */}
+                    <article
+                      className="prose prose-xl prose-slate dark:prose-invert max-w-none prose-headings:font-bold prose-headings:text-slate-900 dark:prose-headings:text-white prose-p:leading-loose prose-p:text-slate-800 dark:prose-p:text-slate-200 prose-li:text-slate-800 dark:prose-li:text-slate-200"
+                      style={{
+                        fontSize: `${fontSize}px`,
+                        lineHeight: lineHeight,
+                        fontFamily: "'Readex Pro', sans-serif",
+                      }}
+                    >
+                      <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+                        <p>
+                          قال المصنف رحمه الله: "هذا هو المتن الذي يتم شرحه في
+                          الدرس". إن طالب العلم يحتاج إلى بيئة قراءة صافية،
+                          تماماً كما يحتاج إلى التركيز مع المعلم. لذلك وفرنا
+                          أدوات التحكم في حجم الخط والمسافات لضمان راحة العين
+                          أثناء الجلسات المطولة.
+                        </p>
+                        <p>
+                          نحن نؤمن بأن "الجمال يخدم العلم"، فالتصميم الجيد ليس
+                          مجرد ألوان، بل هو وظيفة تسهل الوصول للمعلومة وترسخها
+                          في الذهن.
+                        </p>
+                      </div>
+                    </article>
                   </div>
                 </div>
               </div>
@@ -422,17 +519,22 @@ const Lesson = () => {
                   >
                     <Download size={14} /> تصدير Word
                   </button>
+                  <Link
+                    to="/editor"
+                    className="p-2 bg-accent/10 text-accent hover:bg-accent hover:text-white rounded-xl transition-all flex items-center gap-2 text-xs font-bold animate-pulse-subtle"
+                  >
+                    <Maximize2 size={14} /> وضع الـ Zen
+                  </Link>
                 </div>
 
                 <div className="flex-grow flex flex-col gap-4">
-                  <textarea
-                    id="note-content"
-                    className="flex-grow w-full bg-white dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 rounded-3xl p-8 text-slate-800 dark:text-slate-200 resize-none focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none leading-relaxed shadow-sm transition-all"
-                    placeholder="سجّل خواطرك وفوائدك هنا... يتم الحفظ تلقائياً في متصفحك"
-                    value={note}
-                    onChange={(e) => saveNote(e.target.value)}
-                    style={{ fontSize: "1.1rem" }}
-                  />
+                  <div className="flex-grow flex flex-col gap-4 overflow-hidden">
+                    <StudyEditor
+                      lessonId={lessonId}
+                      initialContent={note}
+                      onSave={saveNote}
+                    />
+                  </div>
                   <div className="flex items-center justify-center gap-2 text-[10px] text-slate-400 px-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-full w-fit mx-auto">
                     <CheckCircle size={10} className="text-emerald-500" />
                     تم الحفظ التلقائي في الذاكرة المحلية
@@ -443,6 +545,23 @@ const Lesson = () => {
           </div>
         </div>
       </div>
+
+      {/* Focus Mode Components */}
+      {showFocusSettings && (
+        <FocusModeSettings onClose={() => setShowFocusSettings(false)} />
+      )}
+
+      <AnimatePresence>
+        {showStoryMode && lesson.benefits && (
+          <StoryView
+            items={lesson.benefits}
+            title={lesson.title}
+            onClose={() => setShowStoryMode(false)}
+          />
+        )}
+      </AnimatePresence>
+
+      <ExitConfirmationModal />
     </div>
   );
 };

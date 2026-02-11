@@ -1,25 +1,36 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { dataService } from "../services/dataService";
 
-export const useCourses = () => {
+/**
+ * useCourses Hook
+ * The ONLY responsibility is to facilitate Data Fetching to UI.
+ * Does NOT manipulate Data.
+ */
+export const useCourses = (options = {}) => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Simulate slight loading for smoother transition
-    const timer = setTimeout(() => {
+    const fetchCourses = () => {
       try {
-        const data = dataService.getAllCourses();
+        const data = dataService.getAllCourses(options);
         setCourses(data);
+        setError(null);
       } catch (err) {
-        setError("فشل تحميل الدورات");
+        console.error("Data Service Error:", err);
+        setError("تعذر تحميل البيانات. يرجى المحاولة لاحقاً.");
       } finally {
         setLoading(false);
       }
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
+    };
 
-  return { courses, loading, error };
+    fetchCourses();
+  }, [JSON.stringify(options)]); // Smart dependency tracking
+
+  return {
+    courses,
+    loading,
+    error,
+  };
 };

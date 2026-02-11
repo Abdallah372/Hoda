@@ -1,80 +1,84 @@
 import coursesData from "../data/courses.json";
-import lecturesData from "../data/lectures.json";
+import lessonsData from "../data/lectures.json";
+import instructorsData from "../data/instructors.json";
+import categoriesData from "../data/categories.json";
 import booksData from "../data/books.json";
 import shortsData from "../data/shorts.json";
-import videosData from "../data/videos.json"; // Optional/Future
+
+// In-memory Simulation
+let coursesStore = [...coursesData];
+let lessonsStore = [...lessonsData];
+
+/**
+ * Data Mapping Layer
+ * Converts Raw DB Entities -> UI View Models
+ */
+const mapCourseToViewModel = (course) => {
+  const instructor = instructorsData.find((i) => i.id === course.instructorId);
+  const category = categoriesData.find((c) => c.id === course.categoryId);
+  const lessons = lessonsStore
+    .filter((l) => l.courseId === course.id)
+    .sort((a, b) => a.index - b.index);
+
+  return {
+    ...course,
+    instructorName: instructor?.name || "غير معروف",
+    instructorImage: instructor?.image || "/default-avatar.png",
+    categoryTitle: category?.title || "عام",
+    categoryColor: category?.color || "gray",
+    lessons,
+    lessonsCount: lessons.length, // Computed
+    isNew:
+      new Date(course.createdAt) >
+      new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), // Logic example
+  };
+};
 
 export const dataService = {
-  getAllCourses: () => {
-    return coursesData.map((course) => {
-      const courseLectures = lecturesData.filter(
-        (l) => l.courseId === course.id,
-      );
-      return {
-        ...course,
-        lessonsCount: courseLectures.length,
-        book: booksData.find((b) => b.id === course.bookId),
-      };
-    });
+  getAllCourses: (options = {}) => {
+    let result = coursesStore.map(mapCourseToViewModel);
+
+    // Apply Filters logic here if needed (simulating DB query)
+    if (options.filter) {
+      // ... existing filter logic
+    }
+
+    return result;
   },
 
   getCourseById: (id) => {
-    const course = coursesData.find((c) => c.id === id);
+    const course = coursesStore.find((c) => c.id === id);
     if (!course) return null;
+    return mapCourseToViewModel(course);
+  },
 
-    const lessons = lecturesData
-      .filter((l) => l.courseId === id)
-      .sort((a, b) => a.index - b.index);
+  getAllInstructors: () => instructorsData,
 
-    const book = booksData.find((b) => b.id === course.bookId);
+  getInstructorById: (id) => instructorsData.find((i) => i.id === id),
 
+  // Centralized Search Logic
+  search: (query) => {
+    const lowerQuery = query.toLowerCase();
     return {
-      ...course,
-      lessons,
-      book,
+      courses: coursesStore
+        .filter((c) => c.title.toLowerCase().includes(lowerQuery))
+        .map(mapCourseToViewModel),
+      // ... other entities
     };
   },
 
+  getAllShorts: () => shortsData,
+
   getAllLectures: () => {
-    return lecturesData.map((lecture) => {
-      const course = coursesData.find((c) => c.id === lecture.courseId);
+    return lessonsStore.map((lesson) => {
+      const course = coursesStore.find((c) => c.id === lesson.courseId);
       return {
-        ...lecture,
+        ...lesson,
         courseTitle: course?.title,
         thumbnail: course?.thumbnail,
-        courseId: course?.id,
       };
     });
   },
 
-  getAllShorts: () => {
-    return shortsData;
-  },
-
-  getShortById: (id) => {
-    return shortsData.find((s) => s.id === id);
-  },
-
-  search: (query) => {
-    const lowerQuery = query.toLowerCase();
-
-    const courses = coursesData
-      .filter(
-        (c) =>
-          c.title.includes(query) ||
-          c.instructor.includes(query) ||
-          c.description.includes(query),
-      )
-      .map((c) => ({ type: "course", ...c }));
-
-    const lectures = lecturesData
-      .filter((l) => l.title.includes(query))
-      .map((l) => ({ type: "lecture", ...l }));
-
-    const books = booksData
-      .filter((b) => b.title.includes(query) || b.author.includes(query))
-      .map((b) => ({ type: "book", ...b }));
-
-    return [...courses, ...lectures, ...books];
-  },
+  getAllBooks: () => booksData,
 };

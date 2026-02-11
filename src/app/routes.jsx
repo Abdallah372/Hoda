@@ -7,10 +7,16 @@ import Videos from "../pages/Videos";
 import Shorts from "../pages/Shorts";
 import Lectures from "../pages/Lectures";
 import Books from "../pages/Books";
+import ZenEditor from "../pages/ZenEditor";
+
+import Courses from "../pages/Courses";
+import Instructor from "../pages/Instructor";
 
 const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<Home />} />
+    <Route path="/courses" element={<Courses />} />
+    <Route path="/instructor/:id" element={<Instructor />} />
     <Route path="/about" element={<About />} />
     <Route path="/videos" element={<Videos />} />
     <Route path="/shorts" element={<Shorts />} />
@@ -18,6 +24,7 @@ const AppRoutes = () => (
     <Route path="/books" element={<Books />} />
     <Route path="/course/:id" element={<Course />} />
     <Route path="/lesson/:courseId/:lessonId" element={<Lesson />} />
+    <Route path="/editor" element={<ZenEditor />} />
   </Routes>
 );
 

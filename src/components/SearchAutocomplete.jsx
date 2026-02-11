@@ -86,7 +86,7 @@ const SearchAutocomplete = () => {
         <input
           type="text"
           placeholder="ابحث عن درس، شيخ، أو كتاب..."
-          className="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-full py-2.5 pr-10 pl-4 text-sm focus:ring-2 focus:ring-primary/20 transition-all dark:text-white"
+          className="w-full bg-black/5 dark:bg-white/5 border-none rounded-full py-2.5 pr-10 pl-4 text-sm focus:ring-2 focus:ring-primary/20 transition-all text-primary"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => query.trim().length > 1 && setIsOpen(true)}
@@ -107,7 +107,7 @@ const SearchAutocomplete = () => {
 
       {/* Autocomplete Dropdown */}
       {isOpen && results.length > 0 && (
-        <div className="absolute top-full mt-2 left-0 right-0 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden z-50 fade-in">
+        <div className="absolute top-full mt-2 left-0 right-0 bg-surface rounded-2xl shadow-xl border border-subtle overflow-hidden z-50 fade-in">
           <ul className="py-2">
             {results.map((item, idx) => (
               <li key={idx}>
@@ -119,10 +119,10 @@ const SearchAutocomplete = () => {
                     {getIcon(item.type)}
                   </div>
                   <div>
-                    <div className="font-bold text-slate-900 dark:text-white text-sm line-clamp-1">
+                    <div className="font-bold text-primary text-sm line-clamp-1">
                       {item.title}
                     </div>
-                    <div className="text-xs text-slate-500 flex items-center gap-1">
+                    <div className="text-xs text-muted flex items-center gap-1">
                       <span className="bg-slate-200 dark:bg-slate-700 px-1.5 rounded text-[10px]">
                         {getTypeLabel(item.type)}
                       </span>

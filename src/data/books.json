@@ -4,25 +4,43 @@
     "title": "الأصول الثلاثة",
     "author": "الإمام محمد بن عبد الوهاب",
     "description": "متن الأصول الثلاثة وأدلتها، رسالة مختصرة ونفيسة صنفها الإمام المجدد محمد بن عبد الوهاب رحمه الله، تحتوي على الأصول الواجب على الإنسان معرفتها من معرفة العبد ربه، ودينه، ونبيه صلى الله عليه وسلم.",
-    "pdfUrl": "https://upload.wikimedia.org/wikisource/ar/6/63/%D8%A7%D9%84%D8%A3%D8%B5%D9%88%D9%84_%D8%A7%D9%84%D8%AB%D9%84%D8%A7%D8%AB%D8%A9_%D9%88%D8%A7%D9%84%D9%82%D9%88%D8%A7%D8%B9%D8%AF_%D8%A7%D9%84%D8%A3%D8%B1%D8%A8%D8%B9.pdf"
+    "pdfUrl": "https://upload.wikimedia.org/wikisource/ar/6/63/%D8%A7%D9%84%D8%A3%D8%B5%D9%88%D9%84_%D8%A7%D9%84%D8%AB%D9%84%D8%A7%D8%AB%D8%A9_%D9%88%D8%A7%D9%84%D9%82%D9%88%D8%A7%D8%B9%D8%AF_%D8%A7%D9%84%D8%A3%D8%B1%D8%A8%D8%B9.pdf",
+    "coverImage": "https://placehold.co/400x600/e2e8f0/1e293b?text=cover",
+    "pagesCount": 15,
+    "categoryId": "aqidah",
+    "createdAt": "2024-01-01T00:00:00Z"
   },
   {
     "id": "book-qawaid-arba",
     "title": "القواعد الأربع",
     "author": "الإمام محمد بن عبد الوهاب",
     "description": "رسالة مختصرة في بيان قواعد التوحيد والشرك.",
-    "pdfUrl": "https://upload.wikimedia.org/wikisource/ar/6/63/%D8%A7%D9%84%D8%A3%D8%B5%D9%88%D9%84_%D8%A7%D9%84%D8%AB%D9%84%D8%A7%D8%AB%D8%A9_%D9%88%D8%A7%D9%84%D9%82%D9%88%D8%A7%D8%B9%D8%AF_%D8%A7%D9%84%D8%A3%D8%B1%D8%A8%D8%B9.pdf"
+    "pdfUrl": "https://upload.wikimedia.org/wikisource/ar/6/63/%D8%A7%D9%84%D8%A3%D8%B5%D9%88%D9%84_%D8%A7%D9%84%D8%AB%D9%84%D8%A7%D8%AB%D8%A9_%D9%88%D8%A7%D9%84%D9%82%D9%88%D8%A7%D8%B9%D8%AF_%D8%A7%D9%84%D8%A3%D8%B1%D8%A8%D8%B9.pdf",
+    "coverImage": "https://placehold.co/400x600/e2e8f0/1e293b?text=cover",
+    "pagesCount": 4,
+    "categoryId": "aqidah",
+    "createdAt": "2024-01-02T00:00:00Z"
   },
   {
     "id": "book-wasitiyyah",
     "title": "العقيدة الواسطية",
     "author": "شيخ الإسلام ابن تيمية",
-    "description": "من أشهر المتون في عقيدة أهل السنة والجماعة."
+    "description": "من أشهر المتون في عقيدة أهل السنة والجماعة.",
+    "pdfUrl": "https://upload.wikimedia.org/wikisource/ar/6/63/%D8%A7%D9%84%D8%A3%D8%B5%D9%88%D9%84_%D8%A7%D9%84%D8%AB%D9%84%D8%A7%D8%AB%D8%A9_%D9%88%D8%A7%D9%84%D9%82%D9%88%D8%A7%D8%B9%D8%AF_%D8%A7%D9%84%D8%A3%D8%B1%D8%A8%D8%B9.pdf",
+    "coverImage": "https://placehold.co/400x600/e2e8f0/1e293b?text=cover",
+    "pagesCount": 45,
+    "categoryId": "aqidah",
+    "createdAt": "2024-02-15T00:00:00Z"
   },
   {
     "id": "book-daa-dawaa",
     "title": "الداء والدواء",
     "author": "الإمام ابن قيم الجوزية",
-    "description": "كتاب في تزكية النفوس، وبيان أمراض القلوب وأسباب شفائها."
+    "description": "كتاب في تزكية النفوس، وبيان أمراض القلوب وأسباب شفائها.",
+    "pdfUrl": "https://upload.wikimedia.org/wikisource/ar/6/63/%D8%A7%D9%84%D8%A3%D8%B5%D9%88%D9%84_%D8%A7%D9%84%D8%AB%D9%84%D8%A7%D8%AB%D8%A9_%D9%88%D8%A7%D9%84%D9%82%D9%88%D8%A7%D8%B9%D8%AF_%D8%A7%D9%84%D8%A3%D8%B1%D8%A8%D8%B9.pdf",
+    "coverImage": "https://placehold.co/400x600/e2e8f0/1e293b?text=cover",
+    "pagesCount": 350,
+    "categoryId": "tazkiyah",
+    "createdAt": "2024-03-10T00:00:00Z"
   }
 ]

@@ -1,29 +1,46 @@
 [
   {
     "id": "short-1",
-    "title": "أهمية التوحيد",
-    "views": "1.2M",
+    "title": "لماذا خلقنا الله؟ 🌍",
+    "views": 2400000,
+    "duration": 59,
     "courseId": "course-usul-thalatha",
     "lectureId": "ut-1",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "thumbnail": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+    "createdAt": "2024-01-10T10:00:00Z"
   },
   {
     "id": "short-2",
-    "title": "من ربك؟",
-    "views": "850K",
-    "courseId": "course-usul-thalatha",
-    "lectureId": "ut-2",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "thumbnail": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
-  },
-  {
-    "id": "short-3",
-    "title": "ما معنى لا إله إلا الله؟",
-    "views": "2.1M",
+    "title": "أعظم ذنب عصي الله به! ⚠️",
+    "views": 1800000,
+    "duration": 45,
     "courseId": "course-usul-thalatha",
     "lectureId": "ut-5",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "thumbnail": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+    "createdAt": "2024-01-12T10:00:00Z"
+  },
+  {
+    "id": "short-3",
+    "title": "هل تعلم من هو ربك؟ ✨",
+    "views": 950000,
+    "duration": 55,
+    "courseId": "course-usul-thalatha",
+    "lectureId": "ut-2",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+    "createdAt": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": "short-4",
+    "title": "ما هي الحنيفية؟ 🤔",
+    "views": 500000,
+    "duration": 30,
+    "courseId": "course-usul-thalatha",
+    "lectureId": "ut-3",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+    "createdAt": "2024-01-20T10:00:00Z"
   }
 ]

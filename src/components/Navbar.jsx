@@ -1,33 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Menu, Search, Moon, Sun, X } from "lucide-react";
+import { Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "../hooks/useTheme";
 import SearchAutocomplete from "./SearchAutocomplete";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = ({ onToggleSidebar }) => {
   const { isDark, toggleTheme } = useTheme();
-  // const [searchQuery, setSearchQuery] = useState(""); // Removed as it's handled in Autocomplete
   const navigate = useNavigate();
 
-  // handleSearch removed as it's handled in Autocomplete
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
-      <div className="container h-full max-w-full px-4 flex items-center justify-between gap-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 h-16 header-glass transition-all duration-300">
+      <div className="container h-full max-w-full flex items-center justify-between gap-4">
         {/* Left: Menu & Logo */}
         <div className="flex items-center gap-3">
           <button
             onClick={onToggleSidebar}
-            className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+            className="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors text-primary"
           >
-            <Menu className="text-slate-600 dark:text-slate-300" />
+            <Menu size={20} />
           </button>
 
           <Link to="/" className="flex items-center gap-2 group">
-            <span className="text-2xl group-hover:scale-110 transition-transform">
+            <motion.span whileHover={{ rotate: 15 }} className="text-2xl">
               🕌
-            </span>
-            <span className="text-xl font-bold bg-gradient-to-r from-primary to-emerald-600 bg-clip-text text-transparent">
+            </motion.span>
+            <span className="text-xl font-black bg-gradient-to-r from-emerald-600 to-primary bg-clip-text text-transparent">
               هدى
             </span>
           </Link>
@@ -40,19 +38,21 @@ const Navbar = ({ onToggleSidebar }) => {
 
         {/* Right: Actions */}
         <div className="flex items-center gap-2">
-          {/* Mobile Search Toggle (Optional - For now hidden) */}
-          <button className="md:hidden p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-600">
-            <Search size={20} />
-          </button>
+          <AnimatePresence mode="wait">
+            <motion.button
+              key={isDark ? "moon" : "sun"}
+              initial={{ y: 10, opacity: 0, rotate: -45 }}
+              animate={{ y: 0, opacity: 1, rotate: 0 }}
+              exit={{ y: -10, opacity: 0, rotate: 45 }}
+              transition={{ duration: 0.2 }}
+              onClick={toggleTheme}
+              className="p-2.5 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors text-primary"
+            >
+              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+            </motion.button>
+          </AnimatePresence>
 
-          <button
-            onClick={toggleTheme}
-            className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors text-slate-600 dark:text-slate-300"
-          >
-            {isDark ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
-
-          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-emerald-400 flex items-center justify-center text-white font-bold text-xs ring-2 ring-white dark:ring-slate-900 shadow-sm cursor-pointer hover:scale-105 transition-transform">
+          <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-emerald-600 to-emerald-400 flex items-center justify-center text-white font-black text-xs ring-2 ring-white dark:ring-slate-900 shadow-lg cursor-pointer hover:scale-105 active:scale-95 transition-all">
             ط
           </div>
         </div>

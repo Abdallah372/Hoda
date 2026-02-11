@@ -21,7 +21,21 @@ export const useLesson = (courseId, lessonId) => {
       }
 
       const lessons = foundCourse.lessons || [];
-      const idx = lessons.findIndex((l) => l.id === lessonId);
+
+      // Robust ID finding logic to handle:
+      // 1. String vs Number mismatches ("5" vs 5)
+      // 2. Legacy prefix mismatches ("cw-5" vs "5")
+      const idx = lessons.findIndex((l) => {
+        // 1. Direct match (strict)
+        if (l.id === lessonId) return true;
+        // 2. Loose match (string "5" == number 5)
+        // eslint-disable-next-line eqeqeq
+        if (l.id == lessonId) return true;
+        // 3. Legacy prefixes (e.g. data has "cw-5" but URL is "5")
+        if (String(l.id) === `cw-${lessonId}`) return true;
+        if (String(l.id) === `dd-${lessonId}`) return true;
+        return false;
+      });
 
       if (idx !== -1) {
         setCourse(foundCourse);

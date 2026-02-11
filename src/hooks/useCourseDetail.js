@@ -1,27 +1,32 @@
 import { useState, useEffect } from "react";
 import { dataService } from "../services/dataService";
 
-export const useCourseDetail = (id) => {
+export const useCourseDetail = (courseId) => {
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!id) return;
-    try {
-      const data = dataService.getCourseById(id);
-      if (data) {
-        setCourse(data);
-      } else {
-        setError("الدورة غير موجودة");
+    if (!courseId) return;
+
+    const fetchCourse = () => {
+      try {
+        const data = dataService.getCourseById(courseId);
+        if (data) {
+          setCourse(data);
+        } else {
+          setError("Course not found");
+        }
+      } catch (err) {
+        console.error("Error fetching course detail:", err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
       }
-    } catch (err) {
-      console.error(err);
-      setError("حدث خطأ أثناء تحميل الدورة");
-    } finally {
-      setLoading(false);
-    }
-  }, [id]);
+    };
+
+    fetchCourse();
+  }, [courseId]);
 
   return { course, loading, error };
 };

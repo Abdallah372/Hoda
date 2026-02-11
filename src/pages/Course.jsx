@@ -10,6 +10,7 @@ import {
   BookOpen,
   ExternalLink,
   PlayCircle,
+  Search,
 } from "lucide-react";
 
 const Course = () => {
@@ -17,6 +18,15 @@ const Course = () => {
   const { course, loading, error } = useCourseDetail(id);
   const { progressPercent, completedCount, total, completedLessons } =
     useCourseProgress(id, course ? course.lessons : []);
+
+  const [searchQuery, setSearchQuery] = React.useState("");
+
+  const filteredLessons = React.useMemo(() => {
+    if (!course?.lessons) return [];
+    return course.lessons.filter((lesson) =>
+      lesson.title.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
+  }, [course, searchQuery]);
 
   if (loading)
     return (
@@ -41,7 +51,7 @@ const Course = () => {
   return (
     <div className="fade-in pb-24">
       {/* Header */}
-      <header className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-10 sm:py-12 lg:py-16">
+      <header className="bg-surface border-b border-subtle py-10 sm:py-12 lg:py-16">
         <div className="container grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-8 flex flex-col items-start gap-5 sm:gap-6">
             <Link
@@ -60,10 +70,10 @@ const Course = () => {
               <span>دورة مرئية</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white leading-[1.2]">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-primary leading-[1.2]">
               {course.title}
             </h1>
-            <p className="text-base sm:text-lg text-slate-500 dark:text-slate-400 leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-secondary leading-relaxed max-w-2xl">
               {course.description}
             </p>
           </div>
@@ -112,17 +122,34 @@ const Course = () => {
 
       {/* Curriculum */}
       <section className="pt-24 container max-w-4xl">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <BookOpen
             size={40}
             className="text-primary mx-auto mb-4 opacity-20"
           />
-          <h2 className="text-3xl font-black text-slate-900">منهج الدورة</h2>
+          <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-6">
+            منهج الدورة
+          </h2>
+
+          {/* Course Search */}
+          <div className="relative max-w-md mx-auto">
+            <input
+              type="text"
+              placeholder="ابحث عن درس معين..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full h-12 pr-12 pl-4 bg-surface border border-border-subtle rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm font-bold text-primary"
+            />
+            <Search
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"
+              size={20}
+            />
+          </div>
         </div>
 
         <div className="space-y-3">
-          {course.lessons &&
-            course.lessons.map((lesson, idx) => {
+          {filteredLessons.length > 0 ? (
+            filteredLessons.map((lesson, idx) => {
               const completed = completedLessons.includes(lesson.id);
               return (
                 <Link
@@ -144,7 +171,7 @@ const Course = () => {
                         : "text-slate-200 dark:text-slate-600 group-hover:text-primary/40"
                     }`}
                   >
-                    {String(idx + 1).padStart(2, "0")}
+                    {String(lesson.index + 1).padStart(2, "0")}
                   </span>
 
                   <div className="flex-grow z-10">
@@ -171,7 +198,12 @@ const Course = () => {
                   </div>
                 </Link>
               );
-            })}
+            })
+          ) : (
+            <div className="text-center py-12 text-slate-500">
+              لا يوجد دروس مطابقة للبحث
+            </div>
+          )}
         </div>
       </section>
     </div>
